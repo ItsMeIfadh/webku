@@ -16,6 +16,7 @@ export const UserPage = lazy(() => import('src/pages/user'));
 export const SignInPage = lazy(() => import('src/pages/sign-in'));
 export const ProductsPage = lazy(() => import('src/pages/products'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
+export const LandingPage = lazy(() => import('src/pages/landing')); // Tambahkan ini
 
 // ----------------------------------------------------------------------
 
@@ -43,11 +44,15 @@ export function Router() {
         </DashboardLayout>
       ),
       children: [
-        { element: <HomePage />, index: true },
+        { path: 'home', element: <HomePage /> }, // Ubah ini
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
         { path: 'blog', element: <BlogPage /> },
       ],
+    },
+    {
+      path: '/',
+      element: <LandingPage />, // Tambahkan ini
     },
     {
       path: 'sign-in',
